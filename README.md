@@ -28,5 +28,6 @@ php index.php
 ```
 
 ### Arquivo de silhuetas
+---
 
 O arquivo de silhuetas encontra-se na raiz do projeto, chama-se `file.txt`.
