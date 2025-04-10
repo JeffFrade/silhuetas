@@ -1,0 +1,20 @@
+version: '3.5'
+services:
+  php-fpm-web:
+    build: ./docker/php
+    image: jefffrade/silhuetas:php-fpm
+    restart: on-failure
+    container_name: jefffrade-silhuetas-php-fpm
+    command: php-fpm
+    volumes:
+      - ./:/silhuetas
+    networks:
+      - app
+    healthcheck:
+      test: ['CMD', 'sh', '-c', 'netstat -an | fgrep 9000 | fgrep -q LISTEN']
+      interval: 10s
+      timeout: 5s
+      retries: 2
+
+networks:
+  app:
